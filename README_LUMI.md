@@ -32,7 +32,7 @@ python src/generate.py configs/vqa.toml
 # Generate interleaved dataset
 python src/generate.py configs/interleaved.toml
 
-# Generate cap_pretrain dataset (i increased num_samples to 100k since we will use this dataset for the vlm-training repo)
+# Generate cap_pretrain dataset (i increased num_samples to 100k since we will use this dataset for the [vlm-training repo](https://github.com/shanshanwangcsc/vlm-training))
 python src/generate.py configs/cap_pretrain.toml
 ```
 ## 3. Prepare dataset for Energon
