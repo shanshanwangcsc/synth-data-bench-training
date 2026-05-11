@@ -155,7 +155,8 @@ class DataPackingEncoder(VQABaseTaskEncoder):
     @stateless(restore_seeds=True)
     def encode_sample(self, sample: EnergonSample) -> EncodedSample:
         text = self.processor.apply_chat_template(sample.messages, tokenize=False, add_generation_prompt=False)
-        inputs = self.processor(text=[text], images=[sample.image], padding=False, return_tensors="pt")
+        n_images = text.count("<|image_pad|>")
+        inputs = self.processor(text=[text], images=[sample.image]* n_images, padding=False, return_tensors="pt")
 
         return EncodedSample(
             __key__=sample.__key__,
